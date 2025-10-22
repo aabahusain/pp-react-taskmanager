@@ -1,73 +1,61 @@
-# React + TypeScript + Vite
+# PP Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Lightweight React + TypeScript project created as a learning playground to explore React hooks, Context API, and basic component patterns.
 
-Currently, two official plugins are available:
+## Goals
+- Learn and practice React hooks (useState, useEffect, custom hooks).
+- Learn Context API for global state (theme).
+- Build simple reusable components for tasks input and list.
+- Familiarize with TypeScript types in a React app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What you'll find here
+- App entry and provider wiring: [src/main.tsx](src/main.tsx) which mounts the app and wraps it with the [`ThemeProvider`](src/context/ThemeContext.tsx).
+- Theme context implementation and hook: [`ThemeProvider`](src/context/ThemeContext.tsx) and [`useTheme`](src/context/ThemeContext.tsx).
+- Theme types: [`ThemeContextType`](src/types/theme.ts) and `themeType`: [src/types/theme.ts](src/types/theme.ts).
+- Core UI: [src/App.tsx](src/App.tsx) using the [`useTheme`](src/context/ThemeContext.tsx) hook.
+- Task logic: custom hook [`useTasks`](src/hooks/useTasks.tsx).
+- Small components: [src/components/TaskInput.tsx](src/components/TaskInput.tsx) and [src/components/TaskList.tsx](src/components/TaskList.tsx).
+- Styling: [src/App.css](src/App.css) and [src/index.css](src/index.css).
 
-## React Compiler
+## Tech stack
+- React + TypeScript
+- Vite (see [vite.config.ts](vite.config.ts))
+- ESLint configuration in the repo root
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project structure (key files)
+- [src/main.tsx](src/main.tsx) — app bootstrap and provider setup (uses [`ThemeProvider`](src/context/ThemeContext.tsx))
+- [src/App.tsx](src/App.tsx) — main UI that consumes [`useTheme`](src/context/ThemeContext.tsx)
+- [src/context/ThemeContext.tsx](src/context/ThemeContext.tsx) — Context, provider, and `useTheme` hook
+- [src/types/theme.ts](src/types/theme.ts) — theme-related TypeScript types
+- [src/hooks/useTasks.tsx](src/hooks/useTasks.tsx) — custom hook for task state
+- [src/components/TaskInput.tsx](src/components/TaskInput.tsx) — task creation UI
+- [src/components/TaskList.tsx](src/components/TaskList.tsx) — task listing UI
 
-## Expanding the ESLint configuration
+## How to run
+Install dependencies and run the dev server:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open the app at the address printed by Vite.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Recommended learning steps
+1. Read [src/context/ThemeContext.tsx](src/context/ThemeContext.tsx) to understand how context and custom hooks work (`useTheme`).
+2. Inspect [src/hooks/useTasks.tsx](src/hooks/useTasks.tsx) to see a pattern for encapsulating task state and effects.
+3. Modify [src/components/TaskInput.tsx](src/components/TaskInput.tsx) and [src/components/TaskList.tsx](src/components/TaskList.tsx) to add features (edit, delete, persist).
+4. Experiment with TypeScript types in [src/types/theme.ts](src/types/theme.ts) and extend them for tasks and users.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Notes
+- The app is intentionally small — focus is on experimenting and learning.
+- Theme state is persisted via localStorage in the theme context (see [src/context/ThemeContext.tsx](src/context/ThemeContext.tsx)).
+
+## References
+- App entry: [src/main.tsx](src/main.tsx)
+- Main UI: [src/App.tsx](src/App.tsx)
+- Theme exports: [`useTheme`](src/context/ThemeContext.tsx), [`ThemeProvider`](src/context/ThemeContext.tsx)
+- Types: [src/types/theme.ts](src/types/theme.ts)
+- Hooks & components: [src/hooks/useTasks.tsx](src/hooks/useTasks.tsx), [src/components/TaskInput.tsx](src/components/TaskInput.tsx), [src/components/TaskList.tsx](src/components/TaskList.tsx)
+
+Have fun learning and iterating!
