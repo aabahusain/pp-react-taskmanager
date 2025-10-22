@@ -1,8 +1,9 @@
-![header_image](https://i.chzbgr.com/full/9202863872/hE4F4E66F/funny-meme-about-windows-task-manager)
 
 # PP Task Manager
 
 Lightweight React + TypeScript project created as a learning playground to explore React hooks, Context API, and basic component patterns.
+
+![header_image](https://i.chzbgr.com/full/9202863872/hE4F4E66F/funny-meme-about-windows-task-manager)
 
 ## Goals
 - Learn and practice React hooks (useState, useEffect, custom hooks).
