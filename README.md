@@ -1,3 +1,5 @@
+![header_image](https://i.chzbgr.com/full/9202863872/hE4F4E66F/funny-meme-about-windows-task-manager)
+
 # PP Task Manager
 
 Lightweight React + TypeScript project created as a learning playground to explore React hooks, Context API, and basic component patterns.
@@ -58,4 +60,3 @@ Open the app at the address printed by Vite.
 - Types: [src/types/theme.ts](src/types/theme.ts)
 - Hooks & components: [src/hooks/useTasks.tsx](src/hooks/useTasks.tsx), [src/components/TaskInput.tsx](src/components/TaskInput.tsx), [src/components/TaskList.tsx](src/components/TaskList.tsx)
 
-Have fun learning and iterating!
