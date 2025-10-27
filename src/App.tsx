@@ -26,7 +26,9 @@ function App() {
           Switch to {theme === "light" ? "Dark" : "Light"} Mode
         </Button>
 
-        <TaskInput onAdd={(text) => dispatch({ type: "ADD_TASK", payload: { text } })} />
+        <TaskInput
+          onAdd={(text) => dispatch({ type: "ADD_TASK", payload: { text } })}
+        />
 
         <TaskList
           tasks={tasks}
@@ -35,28 +37,6 @@ function App() {
         />
       </Box>
     </Container>
-    // <>
-    //   <h1>Task Manager App</h1>
-    //   <button onClick={toggleTheme}>
-    //     Swith To {theme === "light" ? "Dark" : "Light"} Mode
-    //   </button>
-
-    //   <div>
-    //     <TaskInput
-    //       onAdd={(text) => dispatch({ type: "ADD_TASK", payload: { text } })}
-    //     />
-    //     <TaskList
-    //       tasks={tasks}
-    //       onToggle={(payload) =>
-    //         dispatch({ type: "TOGGLE_TASK", payload: { id: payload } })
-    //       }
-    //       onRemove={(payload) =>
-    //         dispatch({ type: "REMOVE_TASK", payload: { id: payload } })
-    //       }
-    //     />
-    //   </div>
-
-    // </>
   );
 }
 

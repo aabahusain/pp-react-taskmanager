@@ -14,32 +14,12 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-
-
 const TaskList: React.FC<TaskListProps> = ({ tasks, onToggle, onRemove }) => {
   const sortedTasks = useMemo(() => {
     return [...tasks].sort((a, b) => Number(a.done) - Number(b.done));
   }, [tasks]);
 
   return (
-    // <ul>
-    //   {sortedTasks.map((task: Task) => (
-    //     <li key={task.id}>
-    //       <span
-    //         onClick={() => onToggle(task.id)}
-    //         style={{
-    //           textDecoration: task.done ? "line-through" : "none",
-    //           cursor: "pointer",
-    //         }}
-    //       >
-    //         {task.text}
-    //       </span>
-    //       <button onClick={() => onRemove(task.id)} style={{ marginLeft: 10 }}>
-    //         ❌
-    //       </button>
-    //     </li>
-    //   ))}
-    // </ul>
 
        <List>
       {sortedTasks.map((task: Task) => (

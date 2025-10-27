@@ -21,6 +21,8 @@ function taskReducer(state: Task[], action: taskActions): Task[] {
       return state.map((task) =>
         task.id === action.payload.id ? { ...task, done: !task.done } : task
       );
+    default:
+      return state;
   }
 }
 

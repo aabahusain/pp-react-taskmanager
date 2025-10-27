@@ -18,7 +18,6 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider: React.FC<ThemeProviderType> = ({ children }) => {
     const getInitial = (): themeType => {
-        // if (typeof window !== 'undefined' ) return 'light';
         const stored = localStorage.getItem('theme') as themeType | null;
         if (stored === 'light' || stored === 'dark') return stored;
         return 'light';
@@ -39,9 +38,6 @@ export const ThemeProvider: React.FC<ThemeProviderType> = ({ children }) => {
 
     return (
         <ThemeContext.Provider value={{theme, toggleTheme}}>
-            {/* <div style={{ backgroundColor: theme === 'light' ? "var(--light-bg)" : "var(--dark-bg)", color: theme === 'light' ? "var(--light-text)" : "var(--dark-text)"}}>
-                {children}
-            </div> */}
               <MuiThemeProvider theme={muiTheme}>
                 <CssBaseline />
                     {children}
@@ -50,11 +46,3 @@ export const ThemeProvider: React.FC<ThemeProviderType> = ({ children }) => {
     )
 
 }
-
-
-
-// export default function ThemeProvider() {
-//   return (
-//     <div>ThemeContext</div>
-//   )
-// }

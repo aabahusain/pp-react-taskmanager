@@ -27,15 +27,6 @@ const TaskInput: React.FC<TaskInputProps> = ({ onAdd }) => {
   }
 
   return (
-    // <div>
-    //   <input
-    //     ref={inputRef}
-    //     value={text}
-    //     onChange={handleChange}
-    //     placeholder="Enter a task"
-    //   />
-    //   <button onClick={handleAdd}>Add Task</button>
-    // </div>
       <Box display="flex" gap={2} mb={2}>
       <TextField
         inputRef={inputRef}
